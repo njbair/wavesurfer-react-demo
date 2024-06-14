@@ -9,8 +9,9 @@ const container = document.getElementById('root');
 if (container) {
   console.log('mounting React wavesurfer');
 
-  const peaks = peaksData.data;
-  const duration = peaksData.length;
+  const usePeaks = container.dataset.usePeaks === 'true';
+  const peaks = usePeaks ? peaksData.data : false;
+  const duration = usePeaks ? peaksData.length : false;
 
   const url = "/audio.mp3";
 

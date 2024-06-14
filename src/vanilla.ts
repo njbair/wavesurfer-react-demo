@@ -6,9 +6,10 @@ const container = document.getElementById('waveform');
 if (container) {
   console.log('mounting Vanilla JS wavesurfer');
 
+  const usePeaks = container.dataset.usePeaks === 'true';
   const url = "/audio.mp3";
-  const peaks = peaksData.data ? [peaksData.data] : undefined;
-  const duration = peaksData.length || undefined;
+  const peaks = usePeaks ? ( peaksData.data ? [peaksData.data] : undefined ) : undefined;
+  const duration = usePeaks ? ( peaksData.length || undefined ) : undefined;
   const wavesurfer = WaveSurfer.create({
     container: container,
     url,
@@ -24,10 +25,12 @@ if (container) {
     dragToSeek: true,
     height: 160,
   });
+  const paragraph = document.createElement('p');
   const button = document.createElement('button');
   button.innerText = 'Play/Pause';
   button.addEventListener('click', () => wavesurfer.playPause());
-  container.appendChild(button);
+  paragraph.appendChild(button);
+  container.appendChild(paragraph);
 
   wavesurfer.on('audioprocess', () => { console.log('audioprocess triggered'); });
   wavesurfer.on('click', () => { console.log('click triggered'); });

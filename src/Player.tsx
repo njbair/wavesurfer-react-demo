@@ -8,8 +8,8 @@ function Player({ media }: { media: any }) {
     <>
       <WavesurferPlayer
         url={media.url}
-        peaks={media.peaks ? [media.peaks] : []}
-        duration={media.duration}
+        peaks={media.peaks ? [media.peaks] : undefined}
+        duration={media.duration ? media.duration : undefined}
         audioRate={1}
         // autoplay
         barAlign='bottom'
@@ -43,7 +43,9 @@ function Player({ media }: { media: any }) {
         onTimeupdate={(ws) => { console.log("onTimeupdate triggered"); }}
         onZoom={(ws) => { console.log("onZoom triggered"); }}
       />
-      <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
+      <p>
+        <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
+      </p>
     </>
   );
 }

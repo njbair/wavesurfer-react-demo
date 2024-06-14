@@ -3,11 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Wavesurfer React Test</title>
+    <title>Wavesurfer Vanilla JS Test</title>
+    <script defer src="/static/js/bundle.js"></script>
+    <style>
+      button { margin: 1rem 0; }
+    </style>
   </head>
   <body>
-    <h1>@wavesurfer/react with peaks</h1>
-    <div id="root" data-use-peaks="true"></div>
+    <h1>Vanilla wavesurfer.js without peaks</h1>
+    <div id="waveform" data-use-peaks="false"></div>
     <a href="/">React w/ Peaks</a>
     <a href="/react-no-peaks.html">React w/o Peaks</a>
     <a href="/vanilla.html">Vanilla JS w/ Peaks</a>
