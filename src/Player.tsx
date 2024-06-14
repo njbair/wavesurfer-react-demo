@@ -11,14 +11,14 @@ function Player({ media }: { media: any }) {
         peaks={media.peaks ? [media.peaks] : []}
         duration={media.duration}
         audioRate={1}
-        autoplay
+        // autoplay
         barAlign='bottom'
         barGap={1}
         barHeight={.8}
         barRadius={4}
         barWidth={4}
         dragToSeek
-        height="auto"
+        height={160}
         onAudioprocess={(ws) => { console.log("onAudioprocess triggered"); }}
         onClick={(ws) => { console.log("onClick triggered"); }}
         onDblclick={(ws) => { console.log("onDblclick triggered"); }}
@@ -35,7 +35,7 @@ function Player({ media }: { media: any }) {
         onLoading={(ws) => { console.log("onLoading triggered"); }}
         onPause={(ws) => { console.log("onPause triggered"); }}
         onPlay={(ws) => { console.log("onPlay triggered"); }}
-        onReady={(ws) => { console.log("onReady triggered"); }}
+        onReady={(ws) => { console.log("onReady triggered"); setWavesurfer(ws); }}
         onRedraw={(ws) => { console.log("onRedraw triggered"); }}
         onRedrawcomplete={(ws) => { console.log("onRedrawcomplete triggered"); }}
         onScroll={(ws) => { console.log("onScroll triggered"); }}
