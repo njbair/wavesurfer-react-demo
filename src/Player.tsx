@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import WavesurferPlayer from '@wavesurfer/react';
+import { useEffect, useState } from 'react';
+import WavesurferPlayer from '@wavesurfer/react-dev';
 
 function Player({ media }: { media: any }) {
   const [wavesurfer, setWavesurfer] = useState<any>(null);
+  const [barWidth, setBarWidth] = useState<number>(4);
 
   return (
     <>
@@ -16,7 +17,7 @@ function Player({ media }: { media: any }) {
         barGap={1}
         barHeight={.8}
         barRadius={4}
-        barWidth={4}
+        barWidth={barWidth}
         dragToSeek
         height={160}
         onAudioprocess={(ws) => { console.log("onAudioprocess triggered"); }}
@@ -45,6 +46,8 @@ function Player({ media }: { media: any }) {
       />
       <p>
         <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
+        <button onClick={() => setBarWidth(barWidth + 1)}>Increase bar width</button>
+        <button onClick={() => setBarWidth(barWidth - 1)}>Decrease bar width</button>
       </p>
     </>
   );

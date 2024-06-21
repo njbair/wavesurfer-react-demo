@@ -12,9 +12,9 @@ if (container) {
   const duration = usePeaks ? ( peaksData.length || undefined ) : undefined;
   const wavesurfer = WaveSurfer.create({
     container: container,
-    url,
-    peaks,
-    duration,
+    // url,
+    // peaks,
+    // duration,
     audioRate: 1,
     // autoplay: true,
     barAlign: 'bottom',
@@ -55,4 +55,6 @@ if (container) {
   wavesurfer.on('seeking', () => { console.log('seeking triggered'); });
   wavesurfer.on('timeupdate', () => { console.log('timeupdate triggered'); });
   wavesurfer.on('zoom', () => { console.log('zoom triggered'); });
+
+  wavesurfer.load(url, peaks, duration );
 }
