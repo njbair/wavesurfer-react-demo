@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import WavesurferPlayer from '@wavesurfer/react-dev';
 
-function Player({ media }: { media: any }) {
+function Player({ medias }: { medias: Media[] }) {
+  const [media, setMedia] = useState<Media>(medias[0]);
   const [wavesurfer, setWavesurfer] = useState<any>(null);
   const [barWidth, setBarWidth] = useState<number>(4);
 
@@ -9,7 +10,7 @@ function Player({ media }: { media: any }) {
     <>
       <WavesurferPlayer
         url={media.url}
-        peaks={media.peaks ? [media.peaks] : undefined}
+        peaks={media.peaks ? media.peaks : undefined}
         duration={media.duration ? media.duration : undefined}
         audioRate={1}
         // autoplay
@@ -46,8 +47,19 @@ function Player({ media }: { media: any }) {
       />
       <p>
         <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
-        <button onClick={() => setBarWidth(barWidth + 1)}>Increase bar width</button>
-        <button onClick={() => setBarWidth(barWidth - 1)}>Decrease bar width</button>
+      </p>
+      <p>
+        <button onClick={() => {
+          if (media === medias[0]) {
+            setMedia(medias[1]);
+          } else {
+            setMedia(medias[0]);
+          }
+        }}>Toggle media</button>
+      </p>
+      <p>
+        <button onClick={() => setBarWidth(Math.min(barWidth + 1, 20))}>Increase bar width</button>
+        <button onClick={() => setBarWidth(Math.max(barWidth - 1, 1))}>Decrease bar width</button>
       </p>
     </>
   );

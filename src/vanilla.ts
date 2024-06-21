@@ -1,5 +1,5 @@
 import WaveSurfer from 'wavesurfer.js';
-import peaksData from './peaks.json';
+import peaksData from './audio-peaks.json';
 
 const container = document.getElementById('waveform');
 
