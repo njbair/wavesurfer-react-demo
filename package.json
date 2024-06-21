@@ -10,19 +10,19 @@
     "@types/node": "^16.18.98",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@wavesurfer/react": "file:modules/@wavesurfer/react",
+    "@wavesurfer/react": "file:../wavesurfer-react/dist",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
+    "wavesurfer.js": "^7.7.15",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build:wavesurfer": "cd modules/@wavesurfer/react && npm run build",
-    "start": "npm run build:wavesurfer && react-scripts start",
-    "build": "npm run build:wavesurfer && react-scripts build",
-    "test": "npm run build:wavesurfer && react-scripts test",
-    "eject": "npm run build:wavesurfer && react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

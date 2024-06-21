@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import WavesurferPlayer from '@wavesurfer/react';
 
+import type WaveSurfer from 'wavesurfer.js';
+
 function Player({ medias }: { medias: Media[] }) {
   const [media, setMedia] = useState<Media>(medias[0]);
-  const [wavesurfer, setWavesurfer] = useState<any>(null);
+  const [wavesurfer, setWavesurfer] = useState<WaveSurfer | null>(null);
   const [barWidth, setBarWidth] = useState<number>(4);
 
   return (
@@ -46,7 +48,7 @@ function Player({ medias }: { medias: Media[] }) {
         onZoom={(ws) => { console.log("onZoom triggered"); }}
       />
       <p>
-        <button onClick={() => wavesurfer.playPause()}>Play/Pause</button>
+        <button onClick={() => wavesurfer?.playPause()}>Play/Pause</button>
       </p>
       <p>
         <button onClick={() => {
