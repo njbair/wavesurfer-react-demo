@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import WavesurferPlayer from '@wavesurfer/react-dev';
+import { useState } from 'react';
+import WavesurferPlayer from '@wavesurfer/react';
 
 function Player({ medias }: { medias: Media[] }) {
   const [media, setMedia] = useState<Media>(medias[0]);
